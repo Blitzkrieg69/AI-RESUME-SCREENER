@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{_header :: head (pageTitle='Employer Dashboard')}"></head>
 <body>
     <header th:replace="~{_header :: header}"></header>
 
     <div class="main-container">
-        <div class="content-card">
-            <h1>Welcome, Employer!</h1>
-            <p style="text-align: center;">This is your dashboard. From here you could manage job postings or view overall analytics.</p>
+        <div class="content-card" style="max-width: 900px;">
+            <h1>Uploaded Resumes</h1>
+            
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Uploaded By</th>
+                        <th>File Name</th>
+                        <th>Score</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="doc : ${documents}">
+                        <td th:text="${doc.uploader.username}">employee_username</td>
+                        <td th:text="${doc.fileName}">resume.pdf</td>
+                        <td th:text="${doc.score}">100</td>
+                        <td>
+                            <a th:href="@{/download/{id}(id=${doc.id})}" class="button" style="width: auto; padding: 8px 12px; text-decoration: none;">Download</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
