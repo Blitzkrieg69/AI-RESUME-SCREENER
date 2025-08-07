@@ -3,19 +3,29 @@
 <head th:replace="~{_header :: head (pageTitle='Welcome')}"></head>
 <body>
     <div class="main-container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">AI Resume Screener</h1>
+            <p>Choose your role to get started.</p>
+        </div>
+    </div>
+    
+    <div class="main-container" style="padding-top: 0;">
         <div style="display: flex; gap: 40px;">
-            <div class="content-card" style="text-align: center;">
-                <h2>Employee</h2>
-                <p>I want to upload and screen resumes.</p>
-                <a th:href="@{/login}" class="button" style="text-decoration: none; display: block; margin-bottom: 15px;">Login as Employee</a>
-                <a th:href="@{/register(role='EMPLOYEE')}" style="color: var(--secondary-color);">Register Now</a>
+
+            <div class="content-card home-card" style="text-align: center;">
+                <i class="fa-solid fa-file-arrow-up"></i> <h2>For Employees</h2>
+                <p>Upload resumes, get instant analysis, and see keyword matching scores.</p>
+                <a th:href="@{/login}" class="button">Login</a>
+                <a th:href="@{/register(role='EMPLOYEE')}" class="button-secondary">Register</a>
             </div>
-            <div class="content-card" style="text-align: center;">
-                <h2>Employer</h2>
-                <p>I want to manage jobs and view results.</p>
-                <a th:href="@{/login}" class="button" style="text-decoration: none; display: block; margin-bottom: 15px;">Login as Employer</a>
-                <a th:href="@{/register(role='EMPLOYER')}" style="color: var(--secondary-color);">Register Now</a>
+
+            <div class="content-card home-card" style="text-align: center;">
+                <i class="fa-solid fa-user-tie"></i> <h2>For Employers</h2>
+                <p>View all submitted resumes, compare scores, and download candidate files.</p>
+                <a th:href="@{/login}" class="button">Login</a>
+                <a th:href="@{/register(role='EMPLOYER')}" class="button-secondary">Register</a>
             </div>
+            
         </div>
     </div>
 </body>

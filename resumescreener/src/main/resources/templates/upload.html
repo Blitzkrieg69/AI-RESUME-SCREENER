@@ -8,15 +8,15 @@
         <div class="content-card">
             <h1>Upload Resumes</h1>
         
-            <form method="POST" th:action="@{/upload}" enctype="multipart/form-data">
-                <div>
-                    <label for="files">Choose Resumes (PDF or DOCX)</label>
-                    <input type="file" id="files" name="files" multiple required accept=".pdf,.docx"/>
-                </div>
-                <div>
-                    <button type="submit">Upload and Analyze</button>
-                </div>
-            </form>
+<form method="POST" th:action="@{/upload}" enctype="multipart/form-data" id="uploadForm">
+    <div>
+        <label for="files">Choose Resumes (PDF or DOCX)</label>
+        <input type="file" id="files" name="files" multiple required accept=".pdf,.docx"/>
+    </div>
+    <div>
+        <button type="submit" id="uploadButton">Upload and Analyze</button>
+    </div>
+</form>
         </div>
     </div>
 </body>
