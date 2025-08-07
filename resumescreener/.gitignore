@@ -1,0 +1,13 @@
+# Build files
+/target/
+
+# Log files
+*.log
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Maven files
+.mvn/

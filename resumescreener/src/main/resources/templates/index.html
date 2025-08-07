@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{_header :: head (pageTitle='Welcome')}"></head>
+<body>
+    <div class="main-container">
+        <div style="display: flex; gap: 40px;">
+            <div class="content-card" style="text-align: center;">
+                <h2>Employee</h2>
+                <p>I want to upload and screen resumes.</p>
+                <a th:href="@{/login}" class="button" style="text-decoration: none; display: block; margin-bottom: 15px;">Login as Employee</a>
+                <a th:href="@{/register(role='EMPLOYEE')}" style="color: var(--secondary-color);">Register Now</a>
+            </div>
+            <div class="content-card" style="text-align: center;">
+                <h2>Employer</h2>
+                <p>I want to manage jobs and view results.</p>
+                <a th:href="@{/login}" class="button" style="text-decoration: none; display: block; margin-bottom: 15px;">Login as Employer</a>
+                <a th:href="@{/register(role='EMPLOYER')}" style="color: var(--secondary-color);">Register Now</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{_header :: head (pageTitle='Screening Results')}"></head>
+<body>
+    <header th:replace="~{_header :: header}"></header>
+
+    <div class="main-container">
+        <div class="content-card" style="max-width: 800px;">
+            <h1>Screening Results</h1>
+
+            <div th:if="${candidates.isEmpty()}">
+                <p>No resumes were processed or no keywords were found.</p>
+            </div>
+
+            <div th:unless="${candidates.isEmpty()}">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Resume File</th>
+                            <th>Keywords Found</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="candidate, iterStat : ${candidates}">
+                            <td th:text="${iterStat.count}">1</td>
+                            <td th:text="${candidate.filename}">resume.pdf</td>
+                            <td>
+                                <span th:each="match : ${candidate.keywordMatches}">
+                                    <span th:text="${match.key} + ' (' + ${match.value} + ')'" style="display: inline-block; background-color: #333; padding: 2px 6px; border-radius: 4px; margin: 2px;">java (5)</span>
+                                </span>
+                            </td>
+                            <td th:text="${candidate.score}">100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

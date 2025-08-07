@@ -1,0 +1,272 @@
+/* --- Google Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* --- Global Styles & Variables --- */
+:root {
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-color: #bb86fc;
+    --primary-variant-color: #3700b3;
+    --secondary-color: #03dac6;
+    --on-background-color: #e0e0e0;
+    --on-surface-color: #ffffff;
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--on-background-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Centering Container --- */
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Card Styles (for forms and dashboards) --- */
+.content-card {
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid var(--border-color);
+}
+
+h1 {
+    color: var(--on-surface-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* --- Form Styles --- */
+form div {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--on-background-color);
+    font-size: 1rem;
+    box-sizing: border-box; /* Important for padding */
+}
+
+input::file-selector-button {
+    background-color: var(--primary-color);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* --- Button Styles --- */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* This rule ignores the header dropdown button */
+button:not(.dropbtn):hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- Message Styles --- */
+.error-message {
+    color: #cf6679;
+    background-color: rgba(207, 102, 121, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.success-message {
+    color: #03dac6;
+    background-color: rgba(3, 218, 198, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* --- Header/Nav Styles --- */
+header {
+    background-color: var(--surface-color);
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.nav-right a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.nav-right form {
+    margin-left: 20px;
+}
+
+/* --- Dropdown Menu Styles for Header --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: var(--secondary-color);
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; /* Fixes horizontal alignment */
+    background-color: var(--surface-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    overflow: hidden; 
+}
+
+.dropdown-content a {
+    color: var(--on-surface-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--secondary-color); /* Corrected hover color */
+    color: black; /* Added for better contrast */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --- Home Page Card Button Styles --- */
+.home-card a.button, .home-card a.button-secondary {
+    display: block;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-card a.button {
+    background-color: var(--primary-color);
+    color: black;
+}
+
+.home-card a.button-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.home-card a.button:hover, .home-card a.button-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.home-card a.button-secondary:hover {
+    background-color: var(--primary-color);
+    color: black;
+}
+
+/* --- Table Styles for Results Page --- */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.results-table th, .results-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.results-table thead th {
+    background-color: var(--primary-variant-color);
+    color: var(--on-surface-color);
+    font-weight: 700;
+}
+
+.results-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.results-table tbody tr:hover {
+    background-color: #2c2c2c;
+}
+
+.results-table td:last-child {
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-align: center;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{_header :: head (pageTitle='Upload Resumes')}"></head>
+<body>
+    <header th:replace="~{_header :: header}"></header>
+
+    <div class="main-container">
+        <div class="content-card">
+            <h1>Upload Resumes</h1>
+        
+            <form method="POST" th:action="@{/upload}" enctype="multipart/form-data">
+                <div>
+                    <label for="files">Choose Resumes (PDF or DOCX)</label>
+                    <input type="file" id="files" name="files" multiple required accept=".pdf,.docx"/>
+                </div>
+                <div>
+                    <button type="submit">Upload and Analyze</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

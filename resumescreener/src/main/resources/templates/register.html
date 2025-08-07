@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{_header :: head (pageTitle='Register')}"></head>
+<body>
+    <header th:replace="~{_header :: header}"></header>
+
+    <div class="main-container">
+        <div class="content-card">
+            <h1>Register as <span th:text="${#strings.capitalize(user.role.name().toLowerCase())}">Role</span></h1>
+            
+            <form th:action="@{/register}" th:object="${user}" method="post">
+                <input type="hidden" th:field="*{role}" />
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" th:field="*{username}" required/>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" th:field="*{password}" required/>
+                </div>
+                <div>
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
